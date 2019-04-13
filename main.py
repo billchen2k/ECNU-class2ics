@@ -6,7 +6,6 @@ import time, datetime
 import json
 from random import Random
 
-
 __author__ = 'Xiejiadong'
 __site__ = 'xiejiadong.com'
 
@@ -28,7 +27,7 @@ classTimeList = []
 classInfoList = []
 
 def main():
-    
+	
 	basicSetting();
 	uniteSetting();
 	classInfoHandle();
@@ -242,7 +241,7 @@ def basicSetting():
 	print (info)
 	
 	info = "请设置第一周的星期一日期(如：20160905):\n"
-	firstWeekDate = raw_input(info)
+	firstWeekDate = input(info)
 	checkInput(checkFirstWeekDate, firstWeekDate)
 	
 	info = "正在配置上课时间信息……\n"
@@ -262,20 +261,20 @@ def basicSetting():
 		sys_exit()
 
 	info = "正在配置提醒功能，请输入数字选择提醒时间\n【0】不提醒\n【1】上课前 10 分钟提醒\n【2】上课前 30 分钟提醒\n【3】上课前 1 小时提醒\n【4】上课前 2 小时提醒\n【5】上课前 1 天提醒\n"
-	reminder = raw_input(info)
+	reminder = input(info)
 	checkInput(checkReminder, reminder)
 def checkInput(checkType, input):
 	if(checkType == checkFirstWeekDate):
 		if (checkFirstWeekDate(input)):
 			info = "输入有误，请重新输入第一周的星期一日期(如：20160905):\n"
-			firstWeekDate = raw_input(info)
+			firstWeekDate = input(info)
 			checkInput(checkFirstWeekDate, firstWeekDate)
 		else:
 			setFirstWeekDate(input)
 	elif(checkType == checkReminder):
 		if(checkReminder(input)):
 			info = "输入有误，请重新输入\n【1】上课前 10 分钟提醒\n【2】上课前 30 分钟提醒\n【3】上课前 1 小时提醒\n【4】上课前 2 小时提醒\n【5】上课前 1 天提醒\n"
-			reminder = raw_input(info)
+			reminder = input(info)
 			checkInput(checkReminder, reminder)
 		else:
 			setReminder(input)
@@ -294,7 +293,6 @@ def random_str(randomlength):
     return str
 def sys_exit():
 	print("配置文件错误，请检查。\n")
-	sys.exit()
-reload(sys);
-sys.setdefaultencoding('utf-8');
+	sys.exit(0)
+
 main()

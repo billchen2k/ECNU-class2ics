@@ -19,7 +19,7 @@ _colOfClassroom = 6
 
 def main():
 	# 读取 excel 文件
-	data = xlrd.open_workbook('classInfo.xlsx')
+	data = xlrd.open_workbook(sys.path[0] + '/classInfo.xlsx')
 	table = data.sheets()[0]
 	# print table.cell(1,0).value
 	# 基础信息
@@ -50,9 +50,9 @@ def main():
 	info += "Classroom: " + str(_colOfClassroom) + "列\n"
 	print (info)
 	# info += "输入 0 继续，输入 1 退出："
-	option = raw_input("输入 0 继续，输入其他内容退出：")
-	if option == "1":
-		sys.exit()
+	option = input("输入 y 继续，输入其他内容退出：")
+	if option != "y":
+		sys.exit(0)
 	
 
 	# 开始操作
@@ -91,12 +91,10 @@ def main():
 		i += 1
 	classInfoStr += tailStr
 	# print classInfoStr
-	with open('conf_classInfo.json','w') as f:
+	with open(sys.path[0] + '/conf_classInfo.json','w') as f:
 
 		f.write(classInfoStr)
 		f.close()
 	print("\nALL DONE !")
 
-reload(sys);
-sys.setdefaultencoding('utf-8');
 main()
