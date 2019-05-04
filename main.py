@@ -32,30 +32,11 @@ def main():
 	uniteSetting();
 	classInfoHandle();
 	icsCreateAndSave();
-
-def classICSCreate(classInfo):
-	global classTimeList, DONE_ALARMUID, DONE_UnitUID
-	i = int(classInfo["classTime"]-1)
-	className = classInfo["className"]+"|"+classTimeList[i]["name"]+"|"+classInfo["classroom"]
-	endTime = classTimeList[i]["endTime"]
-	startTime = classTimeList[i]["startTime"]
-	for date in classInfo["date"]:
-		eventString = "BEGIN:VEVENT\nCREATED:"+classInfo["CREATED"]
-		eventString = eventString+"\nUID:"+classInfo["UID"]
-		eventString = eventString+"\nDTEND;TZID=Asia/Shanghai:"+date+"T"+endTime
-		eventString = eventString+"00\nTRANSP:OPAQUE\nX-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC\nSUMMARY:"+className
-		eventString = eventString+"\nDTSTART;TZID=Asia/Shanghai:"+date+"T"+startTime+"00"
-		eventString = eventString+"\nDTSTAMP:"+DONE_CreatedTime
-		eventString = eventString+"\nSEQUENCE:0\nBEGIN:VALARM\nX-WR-ALARMUID:"+DONE_ALARMUID
-		eventString = eventString+"\nUID:"+DONE_UnitUID
-		eventString = eventString+"\nTRIGGER:"+DONE_reminder
-		eventString = eventString+"\nDESCRIPTION:事件提醒\nACTION:DISPLAY\nEND:VALARM\nEND:VEVENT\n"
-		return eventString
-	print("classICSCreate")		
+	print('课程表已保存至脚本目录下的 class.ics 中，你现在可以导入了：）')
 
 
 def save(string):
-     f = open("class.ics", 'wb')
+     f = open(sys.path[0] + "/class.ics", 'wb')
      f.write(string.encode("utf-8"))
      f.close()
 
@@ -65,7 +46,8 @@ def icsCreateAndSave():
 	eventString = ""
 	for classInfo in classInfoList :
 		i = int(classInfo["classTime"]-1)
-		className = classInfo["className"]+"|"+classTimeList[i]["name"]+"|"+classInfo["classroom"]
+		# className = classInfo["className"]+"|"+classTimeList[i]["name"]+"|"+classInfo["classroom"]
+		className = classInfo["className"]
 		endTime = classTimeList[i]["endTime"]
 		startTime = classTimeList[i]["startTime"]
 		index = 0
@@ -75,16 +57,16 @@ def icsCreateAndSave():
 			eventString = eventString+"\nDTEND;TZID=Asia/Shanghai:"+date+"T"+endTime
 			eventString = eventString+"00\nTRANSP:OPAQUE\nX-APPLE-TRAVEL-ADVISORY-BEHAVIOR:AUTOMATIC\nSUMMARY:"+className
 			eventString = eventString+"\nDTSTART;TZID=Asia/Shanghai:"+date+"T"+startTime+"00"
-			eventString = eventString+"\nDTSTAMP:"+DONE_CreatedTime
+			eventString = eventString + "\nDTSTAMP:" + DONE_CreatedTime
+			eventString = eventString + "\nLOCATION:" + classInfo["classroom"]
 			eventString = eventString+"\nSEQUENCE:0\nBEGIN:VALARM\nX-WR-ALARMUID:"+DONE_ALARMUID
 			eventString = eventString+"\nUID:"+DONE_UnitUID
 			eventString = eventString+"\nTRIGGER:"+DONE_reminder
 			eventString = eventString+"\nDESCRIPTION:事件提醒\nACTION:DISPLAY\nEND:VALARM\nEND:VEVENT\n"
-
 			index += 1
 	icsString = icsString + eventString + "END:VCALENDAR"
 	save(icsString)
-	print("icsCreateAndSave")
+	print("Now running: icsCreateAndSave()")
 
 def classInfoHandle():
 	global classInfoList
@@ -137,7 +119,7 @@ def classInfoHandle():
 		for date  in dateList:
 			UID_List.append(UID_Create())
 		classInfo["UID"] = UID_List
-	print("classInfoHandle")
+	print("Now running: classInfoHandle()")
 
 def UID_Create():
 	return random_str(20) + "&xiejiadong.com"
@@ -152,7 +134,7 @@ def CreateTime():
 	# global DONE_EventUID
 	# DONE_EventUID = random_str(20) + "&xiejiadong.com"
 
-	print("CreateTime")
+	print("Now running: CreateTime()")
 
 def uniteSetting():
 	# 
@@ -161,32 +143,32 @@ def uniteSetting():
 	# 
 	global DONE_UnitUID
 	DONE_UnitUID = random_str(20) + "&xiejiadong.com"
-	print("uniteSetting")
+	print("Now running: uniteSetting()")
 
 def setClassTime():
 	data = []
-	with open('conf_classTime.json', 'r') as f:
+	with open(sys.path[0] + '/conf_classTime.json', 'r') as f:
 		data = json.load(f)
 	global classTimeList
 	classTimeList = data["classTime"]
-	print("setclassTime")
+	print("Now running: setclassTime()")
 	
 def setClassInfo():
 	data = []
-	with open('conf_classInfo.json', 'r') as f:
+	with open(sys.path[0] + '/conf_classInfo.json', 'r') as f:
 		data = json.load(f)
 	global classInfoList
 	classInfoList = data["classInfo"]
-	print("setClassInfo:")
+	print("Now running: setClassInfo()")
 
 def setFirstWeekDate(firstWeekDate):
 	global DONE_firstWeekDate
 	DONE_firstWeekDate = time.strptime(firstWeekDate,'%Y%m%d')
-	print("setFirstWeekDate:",DONE_firstWeekDate)
+	print("Now running: setFirstWeekDate():", DONE_firstWeekDate)
 
 def setReminder(reminder):
 	global DONE_reminder
-	reminderList = ["-PT10M","-PT30M","-PT1H","-PT2H","-P1D"]
+	reminderList = ["-PT10M","-PT15M","-PT30M","-PT1H","-P1D"]
 	if(reminder == "1"):
 		DONE_reminder = reminderList[0]
 	elif(reminder == "2"):
@@ -233,7 +215,7 @@ def checkFirstWeekDate(firstWeekDate):
 	if(int(date) > dateList[int(month)-1]):
 		return NO;
 
-	print("checkFirstWeekDate:",firstWeekDate)
+	print("Now running: checkFirstWeekDate():", firstWeekDate)
 	return YES
 
 def basicSetting():
@@ -260,7 +242,7 @@ def basicSetting():
 	except :
 		sys_exit()
 
-	info = "正在配置提醒功能，请输入数字选择提醒时间\n【0】不提醒\n【1】上课前 10 分钟提醒\n【2】上课前 30 分钟提醒\n【3】上课前 1 小时提醒\n【4】上课前 2 小时提醒\n【5】上课前 1 天提醒\n"
+	info = "正在配置提醒功能，请输入数字选择提醒时间:\n[0] 不提醒\n[1] 上课前 10 分钟提醒\n[2] 上课前 15 分钟提醒\n[3] 上课前 30 分钟提醒\n[4] 上课前 1 小时提醒\n[5] 上课前 1 天提醒\n"
 	reminder = input(info)
 	checkInput(checkReminder, reminder)
 def checkInput(checkType, input):
@@ -273,7 +255,7 @@ def checkInput(checkType, input):
 			setFirstWeekDate(input)
 	elif(checkType == checkReminder):
 		if(checkReminder(input)):
-			info = "输入有误，请重新输入\n【1】上课前 10 分钟提醒\n【2】上课前 30 分钟提醒\n【3】上课前 1 小时提醒\n【4】上课前 2 小时提醒\n【5】上课前 1 天提醒\n"
+			info = "输入有误，请重新输入\n[0] 不提醒\n[1] 上课前 10 分钟提醒\n[2] 上课前 15 分钟提醒\n[3] 上课前 30 分钟提醒\n[4] 上课前 1 小时提醒\n[5] 上课前 1 天提醒\n"
 			reminder = input(info)
 			checkInput(checkReminder, reminder)
 		else:
@@ -281,7 +263,6 @@ def checkInput(checkType, input):
 
 	else:
 		print("程序出错了……")
-		end
 
 def random_str(randomlength):
     str = ''

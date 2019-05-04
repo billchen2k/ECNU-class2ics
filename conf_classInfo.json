@@ -1,174 +1,191 @@
 {
-"classInfo":[
-{
-"className":"唐晓艳 高等数学（二）","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":1,
-"weeks":3,
-"classTime":1,
-"classroom":"教书院523"
-
-},{
-"className":"鲍钰 数据结构与算法","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":1,
-"weeks":3,
-"classTime":2,
-"classroom":"教书院418"
-
-},{
-"className":"刘献忠 计算机系统","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":1,
-"weeks":3,
-"classTime":3,
-"classroom":"教书院519"
-
-},{
-"className":"陶霞波 大学语文","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":1,
-"weeks":3,
-"classTime":6,
-"classroom":"文史楼111"
-
-},{
-"className":"韦玮 学术英语写作","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":2,
-"weeks":3,
-"classTime":1,
-"classroom":"教书院105"
-
-},{
-"className":"朱惠彪 软件工程数学","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":2,
-"weeks":3,
-"classTime":2,
-"classroom":"教书院219"
-
-},{
-"className":"吴原元 中国近现代史纲要","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":2,
-"weeks":3,
-"classTime":4,
-"classroom":"文史楼301"
-
-},{
-"className":"姚俊杰 数据结构与算法实践","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":3,
-"weeks":3,
-"classTime":1,
-"classroom":"理科大楼B226"
-
-},{
-"className":"刘献忠 计算机系统","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":3,
-"weeks":2,
-"classTime":2,
-"classroom":"中北数学馆西203"
-
-},{
-"className":"唐晓艳 高等数学（二）","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":3,
-"weeks":1,
-"classTime":2,
-"classroom":"教书院523"
-
-},{
-"className":"唐晓艳 高等数学（二）","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":4,
-"weeks":3,
-"classTime":2,
-"classroom":"教书院523"
-
-},{
-"className":"鲍钰 数据结构与算法","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":4,
-"weeks":3,
-"classTime":3,
-"classroom":"教书院418"
-
-},{
-"className":"张民 程序设计能力实训","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":4,
-"weeks":3,
-"classTime":5,
-"classroom":"理科大楼B226"
-
-},{
-"className":"王海颖 学术英语听说II","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":5,
-"weeks":3,
-"classTime":1,
-"classroom":"教书院302"
-
-},{
-"className":"朱惠彪 软件工程数学","week":{
-"startWeek":1,
-"endWeek":18
-},
-"weekday":5,
-"weeks":3,
-"classTime":2,
-"classroom":"教书院219"
-
-},{
-"className":"马妍 乒乓球（初）","week":{
-"startWeek":1,
-"endWeek":17
-},
-"weekday":5,
-"weeks":3,
-"classTime":3,
-"classroom":"中北学生活动中心舞蹈房"
-
-},{
-"className":"吴敏 搜索引擎与大数据管理","week":{
-"startWeek":10,
-"endWeek":18
-},
-"weekday":5,
-"weeks":3,
-"classTime":5,
-"classroom":"教书院128"
-
-}]
+    "classInfo": [
+        {
+            "className": "唐晓艳 高等数学（二）",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 1,
+            "weeks": 3,
+            "classTime": 1,
+            "classroom": "教书院523"
+        },
+        {
+            "className": "鲍钰 数据结构与算法",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 1,
+            "weeks": 3,
+            "classTime": 2,
+            "classroom": "教书院418"
+        },
+        {
+            "className": "刘献忠 计算机系统",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 1,
+            "weeks": 3,
+            "classTime": 3,
+            "classroom": "教书院519"
+        },
+        {
+            "className": "陶霞波 大学语文",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 1,
+            "weeks": 3,
+            "classTime": 6,
+            "classroom": "文史楼111"
+        },
+        {
+            "className": "韦玮 学术英语写作",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 2,
+            "weeks": 3,
+            "classTime": 1,
+            "classroom": "教书院105"
+        },
+        {
+            "className": "朱惠彪 软件工程数学",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 2,
+            "weeks": 3,
+            "classTime": 2,
+            "classroom": "教书院219"
+        },
+        {
+            "className": "吴原元 中国近现代史纲要",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 2,
+            "weeks": 3,
+            "classTime": 4,
+            "classroom": "文史楼301"
+        },
+        {
+            "className": "姚俊杰 数据结构与算法实践",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 3,
+            "weeks": 3,
+            "classTime": 1,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "刘献忠 计算机系统",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 3,
+            "weeks": 2,
+            "classTime": 2,
+            "classroom": "中北数学馆西203"
+        },
+        {
+            "className": "唐晓艳 高等数学（二）",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 3,
+            "weeks": 1,
+            "classTime": 2,
+            "classroom": "教书院523"
+        },
+        {
+            "className": "唐晓艳 高等数学（二）",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 4,
+            "weeks": 3,
+            "classTime": 2,
+            "classroom": "教书院523"
+        },
+        {
+            "className": "鲍钰 数据结构与算法",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 4,
+            "weeks": 3,
+            "classTime": 3,
+            "classroom": "教书院418"
+        },
+        {
+            "className": "张民 程序设计能力实训",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 4,
+            "weeks": 3,
+            "classTime": 5,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "王海颖 学术英语听说II",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 1,
+            "classroom": "教书院302"
+        },
+        {
+            "className": "朱惠彪 软件工程数学",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 2,
+            "classroom": "教书院219"
+        },
+        {
+            "className": "马妍 乒乓球（初）",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 3,
+            "classroom": "中北学生活动中心舞蹈房"
+        },
+        {
+            "className": "吴敏 搜索引擎与大数据管理",
+            "week": {
+                "startWeek": 10,
+                "endWeek": 18
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 5,
+            "classroom": "教书院128"
+        }
+    ]
 }
