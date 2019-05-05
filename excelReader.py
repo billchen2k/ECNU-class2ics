@@ -8,6 +8,15 @@ import xlrd
 __author__ = 'Xiejiadong'
 __site__ = 'xiejiadong.com'
 
+# 引用自 ~~官方文档~~ 的特别注意：
+# className：课程名称，老师信息也可以一起写在这里
+# startWeek：课程起始周数
+# endWeek：课程结束周数
+# weekday：课程在星期几，比如输入1代表周一，7代表周日
+# week：代表单双周。输入1代表单周的课，2代表双周的课，3代表每周都有的课
+# classTime：课程的时间，与步骤1定义对应，比如输入1代表“第1、2节课”，4代表“第5、6、7节课”
+# classroom：上课所在的教室
+
 # 指定信息在 xls 表格内的列数
 _colOfClassName = 0
 _colOfStartWeek = 1
