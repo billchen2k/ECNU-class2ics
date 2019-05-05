@@ -1,6 +1,6 @@
-##########################################
-# 依赖库 lxml ，request，pillow，pyexecjs  #
-##########################################
+###################################
+# 依赖库 lxml ，requests，pyexecjs  #
+###################################
 
 import requests
 import lxml
@@ -26,6 +26,7 @@ ids = 0
 
 def GetCode():
 	"发送一次新的 get 请求并获取验证码，让用户填写。"
+	print('正在获取验证码...')
 	r = s.get(mainurl, headers=headers)
 	imgraw = s.get(captachaurl)
 	with open(sys.path[0] + '/data/temp.jpg', 'wb+') as f:
@@ -60,7 +61,10 @@ def GetRSA(username, password):
 			line = f.readline()
 	desJS = execjs.compile(jsstr)
 	# 调用 strEnc 函数实现 rsa 加密
-	rsa = desJS.call('strEnc', username + password, '1', '2', '3')
+	try:
+		rsa = desJS.call('strEnc', username + password, '1', '2', '3')
+	except:
+		ErrorExit(info='GetRSA()')
 	return rsa
 
 def LoginLooper(username='', password='', ifEnterPassword=False):
@@ -84,12 +88,13 @@ def LoginLooper(username='', password='', ifEnterPassword=False):
 		'execution': 'e1s1',
 		'_eventId': 'submit'
 	}
+	print('正在尝试登录...')
 	r = s.post(mainurl, data=postData)
 	elements = etree.HTML(r.content)
 	errors = elements.xpath('//*[@id="errormsg"]')
 	if len(errors) == 0:
 		realName = elements.xpath('//a[contains(@title, "查看登录记录")]/font/text()')[0]
-		print('登陆成功:', realName)
+		print('登录成功:', realName)
 		return 0
 	elif elements.xpath('//*[@id="errormsg"]/text()')[0] == "验证码有误":
 		return 1
@@ -104,17 +109,27 @@ def DefineIDS():
 	r = s.get(idsurl)
 	src = r.text
 	rule = re.compile('bg\.form\.addInput\(form,"ids","(.*?)"\);', re.S)
-	ids = re.findall(rule, src)[0]
-	print('ids:',ids)
-	return ids
+	ids = re.findall(rule, src)
+	if (len(ids) == 0):
+		ErrorExit(info='DefineIDS()')
+	print('ids:',ids[0])
+	return ids[0]
 	
 def GetSemesterID():
+	"semester.id: 2018-2019学年度上学期为737，每向前/向后一个学期就增加/减少32."
 	print('正在获取 semester.id...')
 	web = requests.get('https://billc.io/conf-ecnu-class2ics/')
 	elements = etree.HTML(web.content)
-	id = elements.xpath('//strong/text()')[0]
-	print('semester.id:', id)
-	return id
+	id = elements.xpath('//strong/text()')
+	if (len(id) == 0):
+		ErrorExit('GetSemesterID()')
+	print('semster.id:', id[0])
+	return id[0]
+
+def ErrorExit(info):
+	print('在' + info + '出现异常，无法继续。')
+	print('请删除这个东西，去干点其他让你快乐的事情。')
+	sys.exit()
 
 def TableSolver():
 	tablePostData = {'ignoreHead': 1,
@@ -122,15 +137,16 @@ def TableSolver():
                   'startWeek': 1,
                   'semester.id': GetSemesterID(),
                   'ids': ids}
-	# semester.id: 2018-2019学年度上学期为737，每向前/向后一个学期就增加/减少32.
 	semesterIDs = [705, 737, 769]
+	print('正在连接数据库...')
 	r = s.post(tabelurl, data=tablePostData)
 	elements = etree.HTML(r.content)
 	# 提取出具有课程的数据
-	raws = elements.xpath('//*[@language="JavaScript"][3]/text()')[0]
-	# print(raws)
+	raws = elements.xpath('//*[@language="JavaScript"][3]/text()')
+	if (len(raws) == 0):
+		ErrorExit('TableSolver()')
 	# 使用新的正则表达式匹配每一节课所在的时间
-	rawClasses = re.findall('(.\*unitCount\+\d+)|new TaskActivity\((.*?),null', raws)
+	rawClasses = re.findall('(.\*unitCount\+\d+)|new TaskActivity\((.*?),null', raws[0])
 	processing = []
 	processed = []
 	i = 0
@@ -229,7 +245,6 @@ def DumpJson(classList):
 		for i in range(len(temp)):
 			temp[i] = temp[i] - 1
 		classTimes.append(temp)
-	
 	for aClass in classList:
 		nameRaw = aClass[1]
 		nameNew = re.sub('\([\.A-Z0-9]*?\)', '', nameRaw)
@@ -273,15 +288,15 @@ def main():
 			if (c == '0'):
 				feedback = LoginLooper(ifEnterPassword=True)
 			else:
-				sys.exit()
-
+				ErrorExit(info='LoginLooper()')
 	print('正在获取用户 ids...')
 	DefineIDS()
 	print('正在公共数据库上获取课程数据...')
 	classList = TableSolver()
 	print('正在处理为 xjd 标准 json 文件...')
 	DumpJson(classList)
-	print('处理完成，课表信息已保存至 conf_classInfo.json 中。')
+	print('\n处理完成，课表信息已保存至 conf_classInfo.json 中。')
+	print('接下来请运行 main.py 生成 ics。')
 
 
 if __name__ == '__main__':

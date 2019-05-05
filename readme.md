@@ -19,9 +19,9 @@ ics 是国际通用的最为流行的日历文件之一，受到几乎所有日�
 
 如果运行的时候还缺了什么，请 pip 上。
 
-对于华东师范大学的学生，直接运行 crawller.py 和 main.py 即可。对于其他高校的学生，请先在`conf_classTime.json`中配置每节课的时间，然后手动填写`classinfo.xlsx`。具体操作可以参照文末的[官方文档]("http://xiejiadong.com/?p=419")。
+对于华东师范大学的学生，请先后运行 crawller.py （用于获取课程 json）和 main.py （用于生成 ics 文件）。对于其他高校的学生，请先在`conf_classTime.json`中配置每节课的启示时间，然后手动填写`classinfo.xlsx`。具体操作可以参照文末的[官方文档]("http://xiejiadong.com/?p=419")。
 
-最后生成的文件为同目录下的 class.ics.
+最后生成的文件为同目录下的 class.ics。
 
 ## About this
 
