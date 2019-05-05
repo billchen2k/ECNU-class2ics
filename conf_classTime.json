@@ -3,37 +3,37 @@
     {
         "name":"第 1、2 节",
         "startTime":"0800",
-        "endTime":"0940"
+        "endTime":"0930"
     },
     {
         "name":"第 3、4 节",
         "startTime":"1000",
-        "endTime":"1140"
+        "endTime":"1130"
     },
     {
         "name":"第 5、6 节",
         "startTime":"1300",
-        "endTime":"1440"
+        "endTime":"1430"
     },
     {
         "name":"第 5、6、7 节",
         "startTime":"1300",
-        "endTime":"1545"
+        "endTime":"1530"
     },
     {
         "name":"第 7、8 节",
         "startTime":"1500",
-        "endTime":"1640"
+        "endTime":"1630"
     },
     {
         "name":"第 9、10 节",
         "startTime":"1800",
-        "endTime":"1940"
+        "endTime":"1930"
     },
     {
         "name":"第 9、10、11 节",
         "startTime":"1800",
-        "endTime":"2045"
+        "endTime":"2030"
     }
   ]
 }
