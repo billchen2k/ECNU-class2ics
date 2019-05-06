@@ -1,6 +1,17 @@
 {
     "classInfo": [
         {
+            "className": "儒道思想与现代社会",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 1,
+            "weeks": 3,
+            "classTime": 6,
+            "classroom": "教书院128"
+        },
+        {
             "className": "数据结构与算法",
             "week": {
                 "startWeek": 1,
@@ -39,9 +50,9 @@
                 "startWeek": 1,
                 "endWeek": 18
             },
-            "weekday": 4,
+            "weekday": 1,
             "weeks": 3,
-            "classTime": 1,
+            "classTime": 3,
             "classroom": "教书院128"
         },
         {
@@ -89,47 +100,36 @@
             "classroom": "教书院128"
         },
         {
+            "className": "羽毛球（初）",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 2,
+            "weeks": 3,
+            "classTime": 3,
+            "classroom": "教书院128"
+        },
+        {
+            "className": "软件工程数学",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 18
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 2,
+            "classroom": "教书院128"
+        },
+        {
             "className": "程序设计能力实训",
             "week": {
                 "startWeek": 1,
                 "endWeek": 18
             },
-            "weekday": 1,
+            "weekday": 4,
             "weeks": 3,
             "classTime": 5,
-            "classroom": "教书院128"
-        },
-        {
-            "className": "乒乓球（初）",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 17
-            },
-            "weekday": 2,
-            "weeks": 3,
-            "classTime": 3,
-            "classroom": "教书院128"
-        },
-        {
-            "className": "读心的哲学",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 17
-            },
-            "weekday": 5,
-            "weeks": 3,
-            "classTime": 3,
-            "classroom": "教书院128"
-        },
-        {
-            "className": "软件工程数学",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 5,
-            "weeks": 3,
-            "classTime": 2,
             "classroom": "教书院128"
         },
         {
@@ -144,29 +144,18 @@
             "classroom": "教书院128"
         },
         {
-            "className": "音乐基础",
+            "className": "学术英语写作",
             "week": {
                 "startWeek": 1,
                 "endWeek": 18
             },
             "weekday": 5,
             "weeks": 3,
-            "classTime": 5,
+            "classTime": 1,
             "classroom": "教书院128"
         },
         {
-            "className": "IT前沿技术",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 3,
-            "weeks": 3,
-            "classTime": 4,
-            "classroom": "教书院128"
-        },
-        {
-            "className": "语言、社会、文化——澳大利亚纵览",
+            "className": "学术英语听说II",
             "week": {
                 "startWeek": 1,
                 "endWeek": 18
@@ -185,6 +174,17 @@
             "weekday": 2,
             "weeks": 3,
             "classTime": 7,
+            "classroom": "教书院128"
+        },
+        {
+            "className": "地理摄影赏析",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 5,
             "classroom": "教书院128"
         }
     ]
