@@ -253,7 +253,7 @@ def DumpJson(classList):
                     'weekday': aClass[6] + 1,
                     'weeks': aClass[5],
                     'classTime': classTimes.index(aClass[7]) + 1,
-                    'classroom': '教书院128'}
+                    'classroom': aClass[2]}
 		classInfo['classInfo'].append(classData)
 	with open(sys.path[0] + '/conf_classInfo.json', 'w+', encoding='utf8') as f:
 		json.dump(classInfo, f, indent=4, ensure_ascii=False)
