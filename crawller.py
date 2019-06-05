@@ -116,6 +116,8 @@ def DefineIDS():
 	return ids[0]
 	
 def GetSemesterID():
+	return 769
+
 	"semester.id: 2018-2019学年度上学期为737，每向前/向后一个学期就增加/减少32."
 	print('正在获取 semester.id...')
 	web = requests.get('https://billc.io/conf-ecnu-class2ics/')
@@ -248,6 +250,10 @@ def DumpJson(classList):
 	for aClass in classList:
 		nameRaw = aClass[1]
 		nameNew = re.sub('\([\.A-Z0-9]*?\)', '', nameRaw)
+		try:
+			source = classTimes.index(aClass[7]) + 1
+		except:
+			print('出现未在 conf_classTime.json 中配置过的课程时间，请检查。')
 		classData = {'className': nameNew,
                     'week': {'startWeek': aClass[3], 'endWeek': aClass[4]},
                     'weekday': aClass[6] + 1,

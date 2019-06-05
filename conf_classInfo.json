@@ -1,202 +1,136 @@
 {
     "classInfo": [
         {
-            "className": "数据结构与算法",
+            "className": "面向对象程序设计(基于Java)",
             "week": {
                 "startWeek": 1,
-                "endWeek": 18
+                "endWeek": 2
             },
             "weekday": 4,
             "weeks": 3,
-            "classTime": 3,
-            "classroom": "教书院418"
-        },
-        {
-            "className": "数据结构与算法实践",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 3,
-            "weeks": 3,
-            "classTime": 1,
-            "classroom": "理科大楼B517"
-        },
-        {
-            "className": "数据结构与算法",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 1,
-            "weeks": 3,
-            "classTime": 2,
-            "classroom": "教书院418"
-        },
-        {
-            "className": "计算机系统",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 4,
-            "weeks": 3,
-            "classTime": 1,
-            "classroom": "教书院523"
-        },
-        {
-            "className": "计算机系统",
-            "week": {
-                "startWeek": 2,
-                "endWeek": 18
-            },
-            "weekday": 3,
-            "weeks": 2,
-            "classTime": 2,
-            "classroom": "理科大楼B519"
-        },
-        {
-            "className": "高等数学（二）",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 4,
-            "weeks": 3,
-            "classTime": 2,
-            "classroom": "教书院519"
-        },
-        {
-            "className": "高等数学（二）",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 1,
-            "weeks": 3,
-            "classTime": 1,
-            "classroom": "教书院519"
-        },
-        {
-            "className": "高等数学（二）",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 17
-            },
-            "weekday": 3,
-            "weeks": 1,
-            "classTime": 2,
-            "classroom": "教书院519"
-        },
-        {
-            "className": "程序设计能力实训",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 1,
-            "weeks": 3,
-            "classTime": 5,
+            "classTime": 8,
             "classroom": "理科大楼B226"
         },
         {
-            "className": "乒乓球（初）",
+            "className": "面向对象程序设计(基于Java)",
             "week": {
                 "startWeek": 1,
-                "endWeek": 17
-            },
-            "weekday": 2,
-            "weeks": 3,
-            "classTime": 3,
-            "classroom": "中北学生活动中心舞蹈房"
-        },
-        {
-            "className": "读心的哲学",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 17
-            },
-            "weekday": 5,
-            "weeks": 3,
-            "classTime": 3,
-            "classroom": "文史楼103"
-        },
-        {
-            "className": "软件工程数学",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 5,
-            "weeks": 3,
-            "classTime": 2,
-            "classroom": "教书院423"
-        },
-        {
-            "className": "软件工程数学",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 2,
-            "weeks": 3,
-            "classTime": 2,
-            "classroom": "教书院423"
-        },
-        {
-            "className": "音乐基础",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
-            },
-            "weekday": 5,
-            "weeks": 3,
-            "classTime": 5,
-            "classroom": "艺体楼403"
-        },
-        {
-            "className": "IT前沿技术",
-            "week": {
-                "startWeek": 1,
-                "endWeek": 18
+                "endWeek": 2
             },
             "weekday": 3,
             "weeks": 3,
-            "classTime": 4,
-            "classroom": "二附中实验楼阶梯教室"
+            "classTime": 8,
+            "classroom": "理科大楼B226"
         },
         {
-            "className": "语言、社会、文化——澳大利亚纵览",
+            "className": "面向对象程序设计(基于Java)",
             "week": {
                 "startWeek": 1,
-                "endWeek": 18
+                "endWeek": 2
             },
             "weekday": 2,
             "weeks": 3,
-            "classTime": 1,
-            "classroom": "教书院206"
+            "classTime": 8,
+            "classroom": "理科大楼B226"
         },
         {
-            "className": "中国近现代史纲要",
+            "className": "面向对象程序设计(基于Java)",
             "week": {
                 "startWeek": 1,
-                "endWeek": 18
+                "endWeek": 2
+            },
+            "weekday": 1,
+            "weeks": 3,
+            "classTime": 8,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "面向对象程序设计(基于Java)",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 1
+            },
+            "weekday": 5,
+            "weeks": 1,
+            "classTime": 8,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "创客实践",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 2
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 7,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "创客实践",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 2
+            },
+            "weekday": 4,
+            "weeks": 3,
+            "classTime": 7,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "创客实践",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 2
+            },
+            "weekday": 3,
+            "weeks": 3,
+            "classTime": 7,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "创客实践",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 2
             },
             "weekday": 2,
             "weeks": 3,
             "classTime": 7,
-            "classroom": "文史楼215"
+            "classroom": "理科大楼B226"
         },
         {
-            "className": "软件工程数学",
+            "className": "创客实践",
             "week": {
-                "startWeek": 14,
-                "endWeek": 14
+                "startWeek": 1,
+                "endWeek": 2
             },
-            "weekday": 4,
-            "weeks": 2,
-            "classTime": 6,
-            "classroom": "教书院423"
+            "weekday": 1,
+            "weeks": 3,
+            "classTime": 7,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "创客实践",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 1
+            },
+            "weekday": 7,
+            "weeks": 1,
+            "classTime": 7,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "创客实践",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 1
+            },
+            "weekday": 6,
+            "weeks": 1,
+            "classTime": 7,
+            "classroom": "理科大楼B226"
         }
     ]
 }

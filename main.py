@@ -197,7 +197,7 @@ def checkReminder(reminder):
 
 def checkFirstWeekDate(firstWeekDate):
 	# 长度判断
-	if(len(firstWeekDate) != 8):
+	if(len(str(firstWeekDate)) != 8):
 		return NO;
 	
 	year = firstWeekDate[0:4]
