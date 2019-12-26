@@ -26,7 +26,7 @@ DONE_ALARMUID = ""
 classTimeList = []
 classInfoList = []
 
-def main():
+def start():
 	
 	basicSetting();
 	uniteSetting();
@@ -276,4 +276,6 @@ def sys_exit():
 	print("配置文件错误，请检查。\n")
 	sys.exit(0)
 
-main()
+if __name__ == '__main__':
+	start()
+
