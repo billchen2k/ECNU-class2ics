@@ -124,10 +124,10 @@ def DefineIDS():
 	return ids[0]
 	
 def GetSemesterID():
-	"semester.id: 2018-2019学年度上学期为737，每向前/向后一个学期就增加/减少32."
+	"semester.id: 2018-2019学年度上学期为705，每向前/向后一个学期就增加/减少32."
 	year = input('请输入你要获取的学期的年份。例如如要获取 2018 - 2019 学年，请输入 2018，以此类推。稍后将选择具体学期：\n')
 	sem = input('请输入数字指定你要获得的具体学期：\n  (Tips. 有的时候学期会错位，你可以多尝试一下不同的选项。如果还是出错，请删除这个脚本，做点让你快乐的事情。)\n[1] 第一学期\n[2] 第二学期\n[3] 暑假小学期\n')
-	id = 737 + (int(year) - 2018) * 96 + (int(sem) - 1) * 32
+	id = 705 + (int(year) - 2018) * 96 + (int(sem) - 1) * 32
 	# web = requests.get('https://billc.io/conf-ecnu-class2ics/')
 	# elements = etree.HTML(web.content)
 	# id = elements.xpath('//strong/text()')
@@ -310,9 +310,10 @@ def main():
 	print('正在处理为 xjd 标准 json 文件...')
 	DumpJson(classList)
 	print('\n处理完成，课表信息已保存至 conf_classInfo.json 中。')
-	if (input('要开始生成 ics 文件吗？[y] / [n]').lower() == 'y'):
+	if (input('要开始生成 ics 文件吗？[y] / [n]\n').lower() == 'y'):
 		start()
 	else:
+		print("你可以稍后手动使用 main.py 生成 ics 文件。")
 		print("Bye bye~")
 	
 if __name__ == '__main__':
