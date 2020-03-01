@@ -28,7 +28,7 @@ _colOfClassroom = 6
 
 def main():
 	# 读取 excel 文件
-	data = xlrd.open_workbook(sys.path[0] + '/classInfo.xlsx')
+	data = xlrd.open_workbook(sys.path[0] + '/config/classInfo.xlsx')
 	table = data.sheets()[0]
 	# print table.cell(1,0).value
 	# 基础信息

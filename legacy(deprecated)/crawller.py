@@ -5,17 +5,14 @@
 ################################################
 
 import requests
-import lxml
 import re
-import sys
 import json
 import sys
 import getpass
 import execjs
 import platform
 import pytesseract
-import main
-from main import start
+from LEGACY.main import start
 from PIL import Image
 from lxml import etree
 
@@ -128,10 +125,10 @@ def DefineIDS():
 def GetSemesterID():
 	"semester.id: 2018-2019学年度上学期为705，每向前/向后一个学期就增加/减少32."
 	year = input('请输入学年起始年份（例如要获取的课程表在 2018 - 2019 学年，请输入 2018；稍后将选择具体学期）：')
-	sem = input('请选择学期 [1] 第一学期 [2] 第二学期 [3] 暑假小学期：')
+	sem = input('请选择学期 ：')
 	id = 705 + (int(year) - 2018) * 96 + (int(sem) - 1) * 32
 	# web = requests.get('https://billc.io/conf-ecnu-class2ics/')
-	# elements = etree.HTML(web.content)
+	# elements = [1] 第一学期 [2] 第二学期 [3] 暑假小学期etree.HTML(web.content)
 	# id = elements.xpath('//strong/text()')
 	# if (len(id) == 0):
 	# 	ErrorExit('GetSemesterID()')

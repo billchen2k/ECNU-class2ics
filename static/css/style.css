@@ -1,0 +1,23 @@
+.container-main{
+    padding: 10%;
+}
+.title-big{
+    font-weight: lighter;
+    font-size: 360%;
+}
+.container-nav{
+    transition-duration: 1s;
+    position: relative;
+}
+.container-slider{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    width: 400%;
+}
+.container-step{
+    display: block;
+    width: 25%;
+    height: auto;
+}

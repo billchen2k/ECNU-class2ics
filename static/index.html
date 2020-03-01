@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>华东师范大学课程表导出工具</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <script src="js/class2ics.js"></script>
+<!--    &lt;!&ndash;    Loacal Source&ndash;&gt;-->
+<!--    <link rel="stylesheet" href="css/mdui.css">-->
+<!--    <script src="js/mdui.js"></script>-->
+</head>
+
+<body class="mdui-theme-primary-teal mdui-theme-accent-pink mdui-drawer-body-left mdui-appbar-with-toolbar">
+
+
+<header id="header-appbar" class="mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        <a href="javascript:;" mdui-drawer="{target: '#drawer-main', swipe: true}" class="mdui-btn mdui-btn-icon"><i
+                class="mdui-icon material-icons">menu</i></a>
+        <span class="mdui-typo-title">I Just Want a CSV File.</span>
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '刷新'}"><i
+                class="mdui-icon material-icons">refresh</i></a>
+    </div>
+</header>
+
+<section id="section-drawer">
+
+    <div class="mdui-drawer mdui-color-white" id="drawer-main">
+        <ul class="mdui-list">
+
+            <a href="index.html" class="mdui-list-item mdui-list-item-active mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">date_range</i>
+                <div class="mdui-list-item-content">获取</div>
+            </a>
+
+            <a href="feedback.html" class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">rate_review</i>
+                <div class="mdui-list-item-content">反馈</div>
+            </a>
+
+            <li class="mdui-subheader">关于</li>
+            <li mdui-dialog="{target: '#dialog-about'}" class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">info</i>
+                <div class="mdui-list-item-content">关于</div>
+            </li>
+        </ul>
+    </div>
+</section>
+<div class="mdui-progress">
+  <div id="progressbar" class="mdui-progress-determinate" style="width: 0%;"></div>
+</div>
+
+<div id="div-main" class="mdui-container-fluid" style="overflow: hidden;">
+
+    <div id="div-slider" class="container-slider mdui-p-t-5 mdui-m-t-1 ">
+         <section id="step0" class="mdui-p-x-5 mdui-m-x-1 container-step" >
+        <div class="title-big mdui-text-color-teal mdui-m-b-3">Welcome.👋</div>
+
+        <div class="mdui-typo">
+            <p>使用这个工具可以帮你把<u>华东师范大学</u>公共数据库中的课程表转换成 ics 文件。</p>
+            <h3>什么是 ics 文件？</h3>
+            <p>ics 格式是最流行的日历文件之一，受到全世界所有日历软件支持，你可以在 macOS、Windows、Linux、Android、iOS 系统上使用。<br/ >
+                你可以自行配置提醒策略，然后把课程表导入到你的日历软件，日历便会在上课前为你提示。<br/>如果你具备一个同步账号，你的课程表会出现在你的所有设备上，可以让你的生活更加有序。</p>
+            <h3>接下来会发生什么？</h3>
+            <p>为了获取 ics 文件，你需要在这里登陆你在华东师范大学公共数据库的账号，然后选择你要导出的学期并配置提醒时间。不出意外的话你就可以下载到这一学期的 ics 文件了。<br/>
+                </p>
+            <p><b>⚠️ 值得一提的是，我们没有任何方式可以查看您在这里输入的密码，也决不会在任何地方保存您的认证信息。</b>这个工具的前后端都是开源的，你可以在关于板块找到源代码的仓库，请放心使用。</p>
+            <h3>如果你是 iOS 用户...</h3>
+            <p>不妨试试由 <a href="https://github.com/JJAYCHEN1e/ECNU_Bring-Your-Timetable-to-Calendar-App">@JJAYCHEN</a> 开发的捷径：<a href="https://sharecuts.cn/shortcut/4812">https://sharecuts.cn/shortcut/4812</a>，也许可以避免一些这里没有解决的错误。
+                <br/>此外，捷径不会和后端服务器交互，你的密码不会传送到除了公共数据库以外的任何地方。如果你仍然对在这里输入密码抱有疑虑，可以使用捷径的方式。</p>
+        </div>
+
+    </section>
+
+        <section id="step1" class="mdui-p-x-5 mdui-m-x-1 container-step" >
+            <div class="title-big mdui-text-color-teal mdui-m-b-3">登录账户</div>
+
+            <div class="mdui-typo">
+                <p>在这里输入你公共数据库的学号和密码。</p>
+                <p>ℹ️ 验证码会由后台识别，有极小概率识别错误。如果出现错误可以再试一次。</p>
+            </div>
+
+            <div class="mdui-row">
+                <form id="formLogin" action="/logIn" method="get">
+                    <div class="mdui-col-sm-6">
+                        <div class="mdui-textfield mdui-textfield-floating-label">
+                            <i class="mdui-icon material-icons">account_circle</i>
+                            <label class="mdui-textfield-label">学号</label>
+                            <input id="input-username" name="username" class="mdui-textfield-input" required pattern="^[0-9]*$$"/>
+                            <div class="mdui-textfield-error">学号只能为数字</div>
+                        </div>
+                    </div>
+                    <div class="mdui-col-sm-6">
+
+                        <div class="mdui-textfield mdui-textfield-floating-label">
+                            <i class="mdui-icon material-icons">lock</i>
+                            <label class="mdui-textfield-label">密码</label>
+                            <input id="input-password" name="password" class="mdui-textfield-input" required type="password"/>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="mdui-row">
+                <div id="div-error" class="mdui-typo-body-2 mdui-text-color-red mdui-m-a-1">
+                    <i class="mdui-icon material-icons">error</i>
+                        <span class="mdui-m-l-1" id="text-error">错误信息。</span>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section id="step2" class="mdui-p-x-5 mdui-m-x-1 container-step">
+            <div id="text-realname" class="title-big mdui-text-color-teal mdui-m-b-3">已登录为${{Realname}}</div>
+
+
+            <div class="mdui-typo">
+                <p>接下来需要简单地配置一些信息。</p>
+                <!--                <p>ℹ️ 验证码会由后台识别，有极小概率识别错误。如果出现错误可以再试一次。</p>-->
+            </div>
+
+            <form id="formGetCSV" action="/getClass" method="get">
+                <div class="mdui-row">
+
+                    <div class="mdui-col-xs-12">
+                        <i class="mdui-icon material-icons mdui-text-color-grey-600 mdui-p-a-1">data_usage</i>
+                        选择导出学期：
+                        <select id="select-semester" name="semester" class="mdui-select" >
+                            <option value="20192">2019 - 2020 学年 第二学期</option>
+                            <option value="20191">2019 - 2020 学年 第一学期</option>
+                            <option value="20183">2018 - 2019 学年 暑假学期</option>
+                            <option value="20182">2018 - 2019 学年 第二学期</option>
+                            <option value="20181">2018 - 2019 学年 第一学期</option>
+                        </select>
+                    </div>
+
+
+                </div>
+                <div class="mdui-row mdui-m-t-2">
+
+                    <div class="mdui-col-xs-12">
+                        <i class="mdui-icon material-icons mdui-text-color-grey-600 mdui-p-a-1">notifications_active</i>
+                        课前提醒时间：
+                        <select id="select-reminder" name="reminder" value='15' class="mdui-select"
+                                mdui-tooltip="{content: '提醒功能需要打开你所使用的日历 App 的通知权限才可以正常工作', position: 'right'}">
+                            <option value="0">关闭提醒</option>
+                            <option value="10">上课前 10 分钟提醒</option>
+                            <option value="15" selected="selected">上课前 15 分钟提醒</option>
+                            <option value="20">上课前 20 分钟提醒</option>
+                            <option value="30">上课前 30 分钟提醒</option>
+                            <option value="45">上课前 45 分钟提醒</option>
+                            <option value="60">上课前 60 分钟提醒</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mdui-row">
+                <div id="div-error-step2" class="mdui-typo-body-2 mdui-text-color-red mdui-m-a-1">
+                    <i class="mdui-icon material-icons">error</i>
+                        <span class="mdui-m-l-1" id="text-error-step2">错误信息。</span>
+
+                </div>
+            </div>
+            </form>
+
+        </section>
+
+        <section id="step3"  class="mdui-p-x-5 mdui-m-x-1 container-step">
+            <div class="title-big mdui-text-color-teal mdui-m-b-3">最后一步...</div>
+            <div class="mdui-typo">
+                <p>为你找到以下课程：</p>
+                <div class="mdui-table-fluid">
+                    <table class="mdui-table">
+                        <thead>
+                        <tr>
+                            <th>课程名称</th>
+                            <th>教师</th>
+                            <th>上课地点</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody-result">
+
+                        <tr>
+                            <td>数据结构与算法</td>
+                            <td>鲍钰</td>
+                            <td>教书院203</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <p>如果没有什么问题的话，就可以点击导出了。🙂</p>
+            </div>
+        </section>
+
+    </div>
+
+
+
+    <section id="navigator" class="container-nav mdui-p-x-5 mdui-m-x-1 mdui-m-b-5 mdui-p-b-3">
+        <div class="mdui-row mdui-m-t-3">
+            <div id="div-nav-download" class="mdui-col-sm-3 mdui-float-right"  style="display: none;">
+                <button onclick="downloadCSV()" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme mdui-btn-block">
+                    <i id="button-download" class="mdui-icon material-icons">file_download</i>
+                    导出
+                </button>
+            </div>
+
+            <div id="div-nav-next"class="mdui-col-sm-3 mdui-float-right" >
+                <button type="submit" id="button-next" onclick="nextStep()" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme mdui-btn-block"Z>
+                    <i class="mdui-icon material-icons">navigate_next</i>
+                    下一步
+                </button>
+            </div>
+
+            <div id="div-nav-last" class="mdui-col-sm-3 mdui-float-right"  style="display: none;">
+                <button disabled="disabled" id="button-last"onclick="lastStep()" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme mdui-btn-block">
+                    <i class="mdui-icon material-icons">navigate_before</i>
+                    上一步
+                </button>
+            </div>
+            <div id="div-spinner" class="mdui-col-sm-1 mdui-float-right mdui-p-t-1">
+                <div class="mdui-spinner"></div>
+            </div>
+        </div>
+
+        <div id="div-feedback" class="mdui-row mdui-m-t-2" style="display: none">
+            <div class="mdui-col-sm-3 mdui-float-right">
+                <div class="mdui-typo mdui-float-right"><p>数据不对？去<a href="feedback.html">提交反馈 📝</a></p></div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+<section id="section-dialogs">
+
+    <div class="mdui-dialog" id="dialog-about">
+        <div class="mdui-dialog-title">关于 ECNU class2ics  📅</div>
+        <div class="mdui-dialog-content mdui-typo">
+
+            <p>是 <a href="https://billc.io">Bill Chen</a> 做的一个小东西。之前手动导入了两个学期，实在是觉得太麻烦，就写了这样一个工具。这种重复的工作不应该人工来做。</p>
+            <p>感谢 <a href="https://github.com/Xiejiadong/Make-Timetable-.ics-">@xiejiadong</a> 写的 ics 转换工具和 <a href="http://jjaychen.me">@JAYJAYCHEN</a> 提供的一些特殊情况。</p>
+
+            <p>
+                我的邮箱是 <a href="mailto:Bill.Chen@live.com">Bill.Chen@lve.com</a>，你也可以通过 <a href="https://t.me/BillChen2000">Telegram</a> 找到我。
+            <p>
+<!--            <div>Greatly supported by <a href="https://mdui.org">MDUI</a>.</div>-->
+            <p>GitHub: <a href="https://github.com/BillChen2000/ECNU-class2ics">https://github.com/BillChen2000/ECNU-class2ics</a>. <br />
+
+            East China Normal University, 2020.2</p>
+
+        </div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>确定</button>
+        </div>
+    </div>
+
+</section>
+
+<script src="js/class2ics.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>华东师范大学课程表导出工具</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+
+    <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+    <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<!--    &lt;!&ndash;    Loacal Source&ndash;&gt;-->
+<!--    <link rel="stylesheet" href="css/mdui.css">-->
+<!--    <script src="js/mdui.js"></script>-->
+</head>
+
+<body class="mdui-theme-primary-teal mdui-theme-accent-pink mdui-drawer-body-left mdui-appbar-with-toolbar">
+
+
+<header id="header-appbar" class="mdui-appbar mdui-appbar-fixed">
+    <div class="mdui-toolbar mdui-color-theme">
+        <a href="javascript:;" mdui-drawer="{target: '#drawer-main', swipe: true}" class="mdui-btn mdui-btn-icon"><i
+                class="mdui-icon material-icons">menu</i></a>
+        <span class="mdui-typo-title">I Just Want a CSV File.</span>
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '刷新'}"><i
+                class="mdui-icon material-icons">refresh</i></a>
+    </div>
+</header>
+
+<section id="section-drawer">
+
+    <div class="mdui-drawer mdui-color-white" id="drawer-main">
+        <ul class="mdui-list">
+
+            <a href="index.html" class="mdui-list-item  mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">date_range</i>
+                <div class="mdui-list-item-content">获取</div>
+            </a>
+
+            <a href="feedback.html" class="mdui-list-item mdui-list-item-active mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">rate_review</i>
+                <div class="mdui-list-item-content">反馈</div>
+            </a>
+
+            <li class="mdui-subheader">关于</li>
+            <li mdui-dialog="{target: '#dialog-about'}" class="mdui-list-item mdui-ripple">
+                <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">info</i>
+                <div class="mdui-list-item-content">关于</div>
+            </li>
+        </ul>
+    </div>
+</section>
+<div class="mdui-progress">
+  <div id="progressbar" class="mdui-progress-determinate" style="width: 0%;"></div>
+</div>
+
+<div id="div-main" class="mdui-container-fluid mdui-p-a-5 mdui-m-a-1" style="overflow: hidden;">
+
+    <section id="feedback" class="" >
+            <div class="title-big mdui-text-color-teal mdui-m-b-3">提供反馈✏️</div>
+
+            <div class="mdui-typo">
+                <p>如果你生成的课程表文件出了问题，你可以在下面提交反馈。</p>
+                <p>连同反馈一起自动提交的还有你生成的课程表文件。建议你一并附上公共数据库中正确课表的样式，以便于解决问题。</p>
+            </div>
+
+            <div class="mdui-row">
+
+                    <div class="mdui-col-sm-12">
+                        <div class="mdui-textfield mdui-textfield-floating-label">
+
+                            <div class="mdui-textfield mdui-textfield-floating-label">
+                                <i class="mdui-icon material-icons">message</i>
+                              <label class="mdui-textfield-label ">反馈内容</label>
+                              <textarea id="input-message" class="mdui-textfield-input" name="message" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-col-sm-6">
+
+                        <div class="mdui-textfield mdui-textfield-floating-label">
+                            <i class="mdui-icon material-icons">email</i>
+                            <label class="mdui-textfield-label">联系方式（可选）</label>
+                            <input id="input-contact" name="contact" id="input-contact" class="mdui-textfield-input"/>
+                        </div>
+
+                    </div>
+
+                    <div class="mdui-col-sm-6">
+
+<!--                        <div class="">-->
+<!--                            <label class="mdui-icon material-icons">attach_file</label>-->
+<!--                            <label>添加附件（可选）</label>-->
+<!--                            <input type="file" id="button-file" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme" onclick="subMitFeedback()" value="附件（可选）">-->
+<!--                        </div>-->
+
+
+                        <div class="mdui-textfield ">
+                            <form id="form-file" enctype="multipart/form-data">
+                                 <i class="mdui-icon material-icons">attach_file</i>
+                                <label class="mdui-textfield-label">上传图片（可选）</label>
+                                <input type="file" id="input-file" value="" accept="image/*" maxlength="" name="contact" id="input-email" class="mdui-textfield-input"/>
+                            </form>
+                        </div>
+                    </div>
+
+
+            </div>
+            <div class="mdui-row">
+
+                <div id="div-error" class="mdui-typo-body-2 mdui-text-color-red mdui-m-a-1">
+                    <i class="mdui-icon material-icons">error</i>
+                        <span class="mdui-m-l-1" id="text-error">错误信息。</span>
+
+                </div>
+            </div>
+
+        </section>
+
+      <section id="navigator" class="mdui-m-t-2">
+        <div class="mdui-row mdui-m-t-3">
+
+            <div id="div-nav-next"class="mdui-col-sm-3 mdui-float-right">
+                <button id="button-submit" onclick="subMitFeedback()" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme mdui-btn-block">
+                    <i class="mdui-icon material-icons">check</i>
+                     <span id="text-button-submit">提交</span>
+                </button>
+            </div>
+
+            <div id="div-spinner" class="mdui-col-sm-1 mdui-float-right mdui-p-t-1">
+                <div class="mdui-spinner"></div>
+            </div>
+
+        </div>
+      <div class="mdui-row">
+
+<!--        <div class="mdui-float-right mdui-m-a-1">-->
+<!--            <label id="text-requestid" class="mdui-typo-body-1 mdui-text-color-grey">requestid: </label>-->
+<!--        </div>-->
+      </div>
+    </section>
+
+
+    </div>
+
+</div>
+
+
+<section id="section-dialogs">
+
+   <div class="mdui-dialog" id="dialog-about">
+        <div class="mdui-dialog-title">关于 ECNU class2ics  📅</div>
+        <div class="mdui-dialog-content mdui-typo">
+
+            <p>是 <a href="https://billc.io">Bill Chen</a> 做的一个小东西。之前手动导入了两个学期，实在是觉得太麻烦，就写了这样一个工具。这种重复的工作不应该人工来做。</p>
+            <p>感谢 <a href="https://github.com/Xiejiadong/Make-Timetable-.ics-">@xiejiadong</a> 写的 ics 转换工具和 <a href="http://jjaychen.me">@JAYJAYCHEN</a> 提供的一些特殊情况。</p>
+            <p>
+                我的邮箱是 <a href="mailto:Bill.Chen@live.com">Bill.Chen@lve.com</a>，你也可以通过 <a href="https://t.me/BillChen2000">Telegram</a> 找到我。
+            <p>
+<!--            <div>Greatly supported by <a href="https://mdui.org">MDUI</a>.</div>-->
+            <p>GitHub: <a href="https://github.com/BillChen2000/ECNU-class2ics">https://github.com/BillChen2000/ECNU-class2ics</a>. <br />
+
+            East China Normal University, 2020.2</p>
+
+        </div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>确定</button>
+        </div>
+    </div>
+</section>
+<script src="js/feedback.js"></script>
+</body>
+</html>
