@@ -82,7 +82,7 @@ def sendFeedback():
 		withFile = True
 		for one in files:
 			one.save(os.path.join(DEPLOY_PATH + 'static/temp/upload', requestid + secure_filename(one.filename)))
-		filePath = '/temp/upload/' + requestid + secure_filename(one.filename)
+		filePath = '/temp/upload/' + requestid + '.' + secure_filename(one.filename)
 		Feedback.SendPhoto(filePath)
 	feedbackResult = Feedback.Send(message, contact, withFile)
 	if not(feedbackResult["ok"] == True):

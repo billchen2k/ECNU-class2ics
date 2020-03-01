@@ -1,0 +1,180 @@
+{
+    "classInfo": [
+        {
+            "className": "国史纲要",
+            "week": {
+                "startWeek": 9,
+                "endWeek": 16
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 5,
+            "classroom": "闵一教120"
+        },
+        {
+            "className": "人工智能与药物发现",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 13
+            },
+            "weekday": 2,
+            "weeks": 3,
+            "classTime": 7,
+            "classroom": "文史楼111"
+        },
+        {
+            "className": "形式化语言与自动机理论",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 4,
+            "weeks": 3,
+            "classTime": 3,
+            "classroom": "教书院223"
+        },
+        {
+            "className": "并行程序设计",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 3,
+            "weeks": 3,
+            "classTime": 2,
+            "classroom": "教书院218"
+        },
+        {
+            "className": "ACM算法与程序设计",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 2,
+            "weeks": 3,
+            "classTime": 3,
+            "classroom": "理科大楼B527"
+        },
+        {
+            "className": "国史纲要",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 8
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 5,
+            "classroom": "闵一教120"
+        },
+        {
+            "className": "数字图像处理",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 2,
+            "weeks": 3,
+            "classTime": 2,
+            "classroom": "教书院319"
+        },
+        {
+            "className": "人工智能导论",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 4,
+            "weeks": 3,
+            "classTime": 5,
+            "classroom": "教书院116"
+        },
+        {
+            "className": "UML及形式化建模",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 3,
+            "weeks": 3,
+            "classTime": 1,
+            "classroom": "教书院218"
+        },
+        {
+            "className": "数据库系统及应用实践",
+            "week": {
+                "startWeek": 2,
+                "endWeek": 16
+            },
+            "weekday": 4,
+            "weeks": 2,
+            "classTime": 2,
+            "classroom": "理科大楼B226"
+        },
+        {
+            "className": "毛泽东思想和中国特色社会主义理论体系概论",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 1,
+            "weeks": 3,
+            "classTime": 7,
+            "classroom": "文史楼201"
+        },
+        {
+            "className": "城市环境地学",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 13
+            },
+            "weekday": 3,
+            "weeks": 3,
+            "classTime": 7,
+            "classroom": "闵二教113"
+        },
+        {
+            "className": "城市环境地学",
+            "week": {
+                "startWeek": 3,
+                "endWeek": 9
+            },
+            "weekday": 3,
+            "weeks": 1,
+            "classTime": 7,
+            "classroom": "线上学习"
+        },
+        {
+            "className": "数据库系统及其应用",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 1,
+            "weeks": 3,
+            "classTime": 2,
+            "classroom": "教书院218"
+        },
+        {
+            "className": "数据库系统及其应用",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 17
+            },
+            "weekday": 4,
+            "weeks": 1,
+            "classTime": 2,
+            "classroom": "教书院218"
+        },
+        {
+            "className": "游泳（初）",
+            "week": {
+                "startWeek": 1,
+                "endWeek": 16
+            },
+            "weekday": 5,
+            "weeks": 3,
+            "classTime": 3,
+            "classroom": "闵体游泳馆1"
+        }
+    ]
+}
