@@ -53,7 +53,7 @@ def dumpClassJson(raw):
 			"name": re.sub('\([\.A-Z0-9]*?\)', '', one[1]),
 			"teacher": one[0],
 			"classroom": one[2],
-			"weekdata": one[3],
+			"startweek": one[3],
 			"weekday": int(one[4]) + 1,	# [
 
 			"classtime": one[5]

@@ -69,6 +69,10 @@ def getClassCSV():
 	Feedback.SendResult(csvResult)
 	return makeJsonResponse(CODE_SUCCESS, csvResult)
 
+# @app.route('/getSemester')
+# def getSemester():
+# 	return makeJsonResponse(CODE_SUCCESS, FIRST_WEEK_DATE)
+
 @app.route('/sendFeedback', methods=['POST'])
 def sendFeedback():
 	files = request.files.getlist("file")
@@ -81,7 +85,7 @@ def sendFeedback():
 	if(len(files) > 0):
 		withFile = True
 		for one in files:
-			one.save(os.path.join(DEPLOY_PATH + 'static/temp/upload', requestid + secure_filename(one.filename)))
+			one.save(os.path.join(DEPLOY_PATH + 'static/temp/upload', requestid + '.' + secure_filename(one.filename)))
 		filePath = '/temp/upload/' + requestid + '.' + secure_filename(one.filename)
 		Feedback.SendPhoto(filePath)
 	feedbackResult = Feedback.Send(message, contact, withFile)
@@ -93,4 +97,4 @@ if __name__ == '__main__':
 	app.config['JSON_AS_ASCII'] = False
 	app.config['SECRET_KEY'] = os.urandom(24)
 	print(DEPLOY_PATH)
-	app.run(host='0.0.0.0')
+	app.run(host='0.0.0.0', debug=True)

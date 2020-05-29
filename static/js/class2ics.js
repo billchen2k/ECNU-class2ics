@@ -96,7 +96,7 @@ function getCSV() {
         error: function (error) {
             console.error(error);
             $("#div-error-step2").fadeIn(300);
-            $("#text-error-step2").text("出现错误，可能是会话已过期，请刷新网页。")
+            $("#text-error-step2").text("无法解析课程表。可能是会话已过期，请刷新网页。也可能是你的课程表比较特别，暂时无法处理。希望你能帮忙在侧边栏选择反馈提交一下。")
             switchStep(currentStep)
             $("#div-spinner").fadeOut(500);
         }
@@ -105,12 +105,17 @@ function getCSV() {
 
 function printTable(result) {
     var html = "";
+    var classNames = []
     result.data.classes.forEach(function (oneClass) {
-        html += "<tr>";
-        html += "<td>" + oneClass.name + "</td>";
-        html += "<td>" + oneClass.teacher + "</td>";
-        html += "<td>" + oneClass.classroom + "</td>";
-        html += "</tr>";
+        if(classNames.indexOf(oneClass.name) == -1){
+            html += "<tr>";
+            html += "<td>" + oneClass.name + "</td>";
+            html += "<td>" + oneClass.teacher + "</td>";
+            html += "<td>" + oneClass.classroom + "</td>";
+            html += "</tr>";
+            classNames.push(oneClass.name)
+        }
+
     })
     $("#tbody-result").html(html);
 }

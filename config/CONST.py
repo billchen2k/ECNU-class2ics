@@ -7,7 +7,8 @@ FIRST_WEEK_DATE = {
 	"20182": "20190218",
 	"20183": "20190701",
 	"20191": "20190902",
-	"20192": "20200309"
+	"20192": "20200309",
+	"20193": "20200706"
 }
 
 SERVER_ADDRESS = "class.ecnu.im"
@@ -15,7 +16,7 @@ DEPLOY_PATH = os.path.realpath(os.path.dirname(__file__))[:-6]
 
 # 反馈相关
 
-# token 未提交在 Git 上，反馈功能可能出错。
+# token 未提交在 Git 上，反馈功能会无法使用。
 BOT_TOKEN = ""
 RECIEVERS = ["886018984"]
 #RECIEVERS LIST: Ho "38724011"

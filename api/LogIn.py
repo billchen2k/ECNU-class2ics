@@ -10,6 +10,7 @@ from flask import session
 import server
 
 def logIn(username, password):
+    session["realname"] = None
     requestid = username + "_" + Utils.getFormattedDateTime();
     session["requestid"] = requestid
     s = requests.session()

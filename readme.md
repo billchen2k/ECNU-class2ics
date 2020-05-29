@@ -5,7 +5,9 @@
 ## What's this
 
 ics 是最流行的日历文件之一，受到几乎所有日历软件的支持。这个程序能根据指定的提醒策略，将高校的课程表信息生成一个可以导入到各个日历软件的 ics 文件。
-![](https://tva1.sinaimg.cn/large/00831rSTgy1gcc7fv4zmxj31100u01kx.jpg)
+![2020-05-29-ZZtweS](https://billc.oss-cn-shanghai.aliyuncs.com/img/2020-05-29-ZZtweS.jpg)
+
+此外，如果你是 iOS 用户，可以试试由 @JJAYCHEN 开发的 iOS 捷径，也许可以解决一些本工具无法解决的特殊情况：[https://github.com/JJAYCHEN1e/ECNU_Bring-Your-Timetable-to-Calendar-App](https://github.com/JJAYCHEN1e/ECNU_Bring-Your-Timetable-to-Calendar-App)
 
 ## Why we made this
 
@@ -19,8 +21,9 @@ ics 是最流行的日历文件之一，受到几乎所有日历软件的支持�
 基于 flask + apache2，依赖以下库：
 
 ```
+sudo apt-get install tesseract-ocr nodejs
+sudo apt-get install python3-pip libapache2-mod-wsgi-py3 python-dev
 pip3 install flask lxml request pillow pyexecjs pytesseract
-sudo apt-get install tesseract-ocr, nodejs
 ```
 
 如果运行的时候还缺了什么，请 pip / pip3 上。

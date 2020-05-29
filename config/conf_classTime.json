@@ -6,6 +6,21 @@
         "endTime":"0930"
     },
     {
+        "name":"第 1、2、3、4 节",
+        "startTime":"0800",
+        "endTime":"1130"
+    },
+    {
+        "name":"第 5、6、7、8 节",
+        "startTime":"1300",
+        "endTime":"1630"
+    },
+    {
+        "name":"第 2、3、4 节",
+        "startTime":"0855",
+        "endTime":"1130"
+    },
+    {
         "name":"第 3、4 节",
         "startTime":"1000",
         "endTime":"1130"
