@@ -8,10 +8,11 @@ FIRST_WEEK_DATE = {
 	"20183": "20190701",
 	"20191": "20190902",
 	"20192": "20200309",
-	"20193": "20200706"
+	"20193": "20200706",
+	"20201": "20200914"
 }
 
-SERVER_ADDRESS = "class.ecnu.im"
+SERVER_ADDRESS = "class2ics.billc.io"
 DEPLOY_PATH = os.path.realpath(os.path.dirname(__file__))[:-6]
 
 # 反馈相关
