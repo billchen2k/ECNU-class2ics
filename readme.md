@@ -1,6 +1,6 @@
 # ECNU-class2ics
 
-进入网站 👉 [https://class.ecnu.im](https://class.ecnu.im) 即可使用。
+进入网站 👉 [https://class2ics.billc.io](https://class2ics.billc.io) 即可使用。
 
 ## What's this
 
