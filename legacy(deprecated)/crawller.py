@@ -197,7 +197,7 @@ def TableSolver():
 	print('\n已获取课程:')
 	for one in processing:
 		temp = []
-		temp.extend(one[0].replace('"', '').split(','))
+		temp.extend(re.findall(r'"([^"]+)"', one[0]))
 		del temp[4], temp[2], temp[0]
 		weekData = WeekProcessor(temp[3])
 		del temp[3]
