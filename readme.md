@@ -23,7 +23,8 @@ ics 是最流行的日历文件之一，受到几乎所有日历软件的支持�
 ```
 sudo apt-get install tesseract-ocr nodejs
 sudo apt-get install python3-pip libapache2-mod-wsgi-py3 python-dev
-pip3 install flask lxml request pillow pyexecjs pytesseract
+pip3 install flask lxml requests pillow pyexecjs
+pip3 install pytesseract
 ```
 
 如果运行的时候还缺了什么，请 pip / pip3 上。
